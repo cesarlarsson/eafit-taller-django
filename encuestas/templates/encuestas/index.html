@@ -1,0 +1,22 @@
+<html>
+
+<body>
+	{% load staticfiles %}
+Encuestas EAFIT <img src="{{ STATIC_URL }}images/logo.jpeg" alt="Hi!"  />
+{% load staticfiles %}
+
+
+{% if ultimas_encuestas %}
+    <ul>
+    {% for poll in ultimas_encuestas %}
+       <!-- <li><a href="/encuestas/{{ poll.id }}/">{{ poll.pregunta }}</a></li> -->
+
+      
+        <li><a href="{% url encuestas:detalles poll.id %}">{{ poll.pregunta }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay encuestas disponibles.</p>
+{% endif %}
+</body>
+</html>

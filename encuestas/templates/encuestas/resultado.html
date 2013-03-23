@@ -1,0 +1,9 @@
+<h1>{{ Encuesta.pregunta }}</h1>
+
+<ul>
+{% for pregunta in encuesta.pregunta_set.all %}
+    <li>{{ pregunta.pregunta }} -- {{ pregunta.votos }} vote{{ pregunta.votos|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url encuestas:detalles encuesta.id %}">Votar de nuevo?</a>
